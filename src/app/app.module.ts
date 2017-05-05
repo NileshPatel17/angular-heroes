@@ -3,18 +3,48 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+
+import {AppRoutingModule} from './app-routing.module';
+
+import {
+  AppComponent, HeroesComponent, HeroDetailComponent, DashboardComponent,
+  HeroSearchComponent, LoadingComponent,
+  LoginComponent,ShellComponent
+} from './components';
+
+import {
+  HeroService, HeroSearchService, LoadingStatusService, UserAuthenticationService,
+  InMemoryDataService
+} from './providers';
+
+const COMPONENTS=[
+  AppComponent,
+  DashboardComponent,
+  HeroesComponent,
+  HeroDetailComponent,
+  HeroSearchComponent,
+  LoadingComponent,
+  LoginComponent,
+  ShellComponent
+];
+
+const PROVIDERS=[
+  LoadingStatusService, UserAuthenticationService, HeroService, HeroSearchService
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    COMPONENTS
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [PROVIDERS],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
