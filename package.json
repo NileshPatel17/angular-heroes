@@ -2,6 +2,10 @@
   "name": "angular-heroes",
   "version": "0.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "6.9.3",
+    "npm": "3.10.10"
+  }
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
